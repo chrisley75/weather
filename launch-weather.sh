@@ -11,12 +11,12 @@ if [ -z "${ps}" ]; then
 	echo "chrisley's weather app is not running"
 	echo "starting app..."
 	# Launch chrisley's weather app
-	node ${path}/bin/www >> ${path}/weather.log
+	nohup node ${path}/bin/www >> ${path}/weather.log >/dev/null 2>&1 &
 else
 	echo "chrisley's app is running with PID:" ${ps}
 	echo "restarting app..."
 	kill -15 ${ps}
 	sleep 1
 	# Launch chrisley's weather app
-	node ${path}/bin/www >> ${path}/weather.log
+	nohup node ${path}/bin/www >> ${path}/weather.log >/dev/null 2>&1 &
 fi
