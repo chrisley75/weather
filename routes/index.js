@@ -7,19 +7,6 @@ const OWM_API_KEY = process.env.OWM_API_KEY || 'invalid_key';
 const UNITS = process.env.UNITS || 'metric';
 const OWN_API_KEY = '45df74ee2e01cd6b86439fb0d5f4e716';
 
-
-const winston = require('winston');
-require('winston-logstash');
-
-winston.add(winston.transports.Logstash,
-{
-    port: 5044,
-    host: 'elk.chrisley.fr',
-    ssl_enable: false,
-    max_connect_retries: -1,
-});
-
-
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', { weather: null, err: null });
@@ -47,11 +34,11 @@ router.post('/get_weather', async function (req,res) {
     console.log(separator1, pays, separator2, separator1, ville, separator2, separator1, meteo, separator2, separator1, conditions, separator2, separator1, temperature, separator2, separator1, pression, separator2, separator1, humidite, separator2);
 
 /*  console.log(pays, ville, meteo, conditions, temperature, pression, humidite);
-/*    console.log (meteo);
-/*    return weather; 
+    console.log (meteo);
+    return weather; 
     const meteo = JSON.parse(weather);
     console.log(weather.name);
-/*    console.log(meteo);
+    console.log(meteo);
     winston.log(weather); 	  
     console.log(weather); 
 */
