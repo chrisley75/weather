@@ -8,5 +8,6 @@ ps=`pgrep node`
 echo kill node process: ${ps}
 kill -15 ${ps}
 
+sleep 5
 # Launch chrisley's weather app
 nohup node ${path}/bin/www >> ${path}/weather.log &
