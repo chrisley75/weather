@@ -27,8 +27,8 @@ router.get('/', function(req, res) {
 
 router.post('/get_weather', async function (req,res) {
   let city = req.body.city;
-	
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${UNITS}&appid=45df74ee2e01cd6b86439fb0d5f5e716`;
+
+  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${UNITS}&appid=45df74ee2e01cd6b86439fb0d5f4e716`;
 /*  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${UNITS}&appid=${OWN_API_KEY}`;*/
 
   try {
@@ -52,9 +52,9 @@ router.post('/get_weather', async function (req,res) {
     const meteo = JSON.parse(weather);
     console.log(weather.name);
 /*    console.log(meteo);
-    winston.log(weather);	  
-    console.log(weather); */
-
+    winston.log(weather); 	  
+    console.log(weather); 
+*/
 	  
     if(weather.cod == '404' && weather.main == undefined) {
       res.render('index', {weather: null, error: 'Error: Unknown city'});
